@@ -467,6 +467,111 @@ form button:active {
     transform: translateY(1px);
 }
 
+/* Form Section - Modified for larger screens to cover full height and fill space with taller elements */
+@media (min-width: 768px) { /* Apply styles for tablets and larger */
+  form {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Distribute space evenly */
+    padding: 50px; /* Increased overall padding */
+    margin: 0;
+  }
+
+  form .label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    padding: 20px; /* Increased input padding */
+    margin-bottom: 30px; /* Increased margin */
+    font-size: 1.1rem;
+    height: 60px; /* Set a specific height for input fields */
+  }
+
+  textarea {
+    padding: 20px; /* Increased textarea padding */
+    margin-bottom: 30px; /* Increased margin */
+    font-size: 1.1rem;
+    height: 200px; /* Increased textarea height significantly */
+  }
+
+  form button {
+    padding: 25px; /* Increased button padding */
+    font-size: 1.3rem;
+    height: 70px; /* Set a specific height for the button */
+  }
+}
+
+/* Keep the existing form styles for smaller screens */
+form {
+  max-width: 70%;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1f267d;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+form .label {
+  display: block;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s ease-in-out;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff7e15;
+  box-shadow: 0 0 5px rgba(255, 126, 21, 0.3);
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+form button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+form button:active {
+  transform: translateY(1px);
+}
+
 /* Partnerships Section */
 h4 {
     text-align: center;
@@ -960,20 +1065,93 @@ html {
     height:auto;
     border-radius:10px;
 }
-@media (min-width: 768px){
-    .accordion-content:has(h5:contains("MANAGING DIRECTOR")) #img,
-    .accordion-content:has(h5:contains("GENERAL OPERATIONAL MAMAGER")) #img,
-    .accordion-content:has(h5:contains("CHIEF FINANCIAL OFFICER")) #img{
-        max-width:50%;
-        float:left;
-        margin-right:15px;
-    }
-    .accordion-content:has(h5:contains("MANAGING DIRECTOR")) ul,
-    .accordion-content:has(h5:contains("GENERAL OPERATIONAL MANAGER")) ul,
-    .accordion-content:has(h5:contains("CHIEF FINANCIAL OFFICER")) ul {
-        overflow:auto;
-        padding-left:55%;
-    }
+/* Styles for images in the last accordion item on larger screens */
+@media (min-width: 768px) {
+  #teamContent img {
+    display: block; /* Ensure it behaves as a block-level element for centering */
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%; /* Cover 70% of the parent's width */
+    height: auto; /* Maintain aspect ratio initially */
+    aspect-ratio: 1 / 1; /* Force a 1:1 (square) aspect ratio */
+    object-fit: cover; /* Ensure the image covers the square area without distortion */
+    border-radius: 50%; /* Optional: Make the images circular */
+  }
+
+  /* Adjust the layout of the text next to the image */
+  #teamContent ul {
+    padding-left: 0; /* Reset default padding */
+    text-align: center; /* Center the text below the image */
+  }
+
+  #teamContent ul h5,
+  #teamContent ul li {
+    text-align: center; /* Ensure headings and list items are centered */
+  }
+
+  /* Remove float and adjust padding for the text on larger screens */
+  .accordion-content:has(h5:contains("MANAGING DIRECTOR")) #imG,
+  .accordion-content:has(h5:contains("GENERAL OPERATIONAL MANAGER")) #imG,
+  .accordion-content:has(h5:contains("CHIEF FINANCIAL OFFICER")) #imG {
+    float: none; /* Remove float */
+    margin-right: auto; /* Ensure centering */
+    margin-left: auto; /* Ensure centering */
+    max-width: 70%; /* Match image width */
+  }
+
+  .accordion-content:has(h5:contains("MANAGING DIRECTOR")) ul,
+  .accordion-content:has(h5:contains("GENERAL OPERATIONAL MANAGER")) ul,
+  .accordion-content:has(h5:contains("CHIEF FINANCIAL OFFICER")) ul {
+    padding-left: 0; /* Remove padding that was for floated elements */
+  }
+}
+
+/* Existing styles for accordion content (keep these) */
+.accordion-content {
+  padding: 0 40px;
+  overflow: hidden;
+  max-height: 0; /* Initially hidden */
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  background-color: white;
+  overflow-y: auto; /* For scrollable content if it overflows */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  color:#1f267d;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* Adjust as needed */
+  padding: 20px;
+}
+
+.accordion-content h5 {
+  margin-top: 0;
+  color: #1f267d;
+  text-align: center;
+}
+.accordion-content p {
+  text-align: justify;
+}
+
+.accordion-content ol li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.accordion-content ul li {
+  list-style: none;
+  text-align:center;
+  overflow:auto;
+  color:black;
+}
+.accordion-content img {
+  display:block;
+  margin-bottom: 10%;
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
 }
 
 /* Copyright */

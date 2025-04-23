@@ -1075,7 +1075,7 @@ html {
     height: auto; /* Maintain aspect ratio initially */
     aspect-ratio: 1 / 1; /* Force a 1:1 (square) aspect ratio */
     object-fit: cover; /* Ensure the image covers the square area without distortion */
-    border-radius: 50%; /* Optional: Make the images circular */
+    border-radius: 20px; /* Set the border radius to 20px */
   }
 
   /* Adjust the layout of the text next to the image */
@@ -1104,6 +1104,54 @@ html {
   .accordion-content:has(h5:contains("CHIEF FINANCIAL OFFICER")) ul {
     padding-left: 0; /* Remove padding that was for floated elements */
   }
+}
+
+/* Existing styles for accordion content (keep these) */
+.accordion-content {
+  padding: 0 40px;
+  overflow: hidden;
+  max-height: 0; /* Initially hidden */
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  background-color: white;
+  overflow-y: auto; /* For scrollable content if it overflows */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  color:#1f267d;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* Adjust as needed */
+  padding: 20px;
+}
+
+.accordion-content h5 {
+  margin-top: 0;
+  color: #1f267d;
+  text-align: center;
+}
+.accordion-content p {
+  text-align: justify;
+}
+
+.accordion-content ol li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.accordion-content ul li {
+  list-style: none;
+  text-align:center;
+  overflow:auto;
+  color:black;
+}
+.accordion-content img {
+  display:block;
+  margin-bottom: 10%;
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
 }
 
 /* Existing styles for accordion content (keep these) */

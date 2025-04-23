@@ -278,6 +278,56 @@ body {
     color: #555;
 }
 
+@media (min-width: 768px) {
+  .services-cards {
+    display: flex;
+    flex-wrap: wrap; /* Important for the second row */
+    justify-content: center; /* Center the rows of cards */
+    gap: 30px; /* Increased gap between cards */
+  }
+
+  .card {
+    width: calc(33.33% - 20px); /* Target width for the first three cards */
+    margin-bottom: 30px; /* Add margin below each card */
+    padding: 30px; /* Increase padding inside the cards */
+  }
+
+  /* Target the last two cards to take up more width on the second row */
+  .services-cards .card:nth-last-child(2),
+  .services-cards .card:last-child {
+    width: calc(50% - 15px); /* Occupy half the width for centering */
+  }
+
+  /* Force the last two cards to start on a new line */
+  .services-cards .card:nth-child(4),
+  .services-cards .card:nth-child(5) {
+    flex-basis: 100%; /* Take full width of the container */
+    max-width: calc(50% - 15px); /* Then set their actual width */
+  }
+
+  /* Center the last two cards on their row */
+  .services-cards .card:nth-child(4),
+  .services-cards .card:nth-child(5) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card .icon {
+    font-size: 3rem; /* Increase icon size */
+    margin-bottom: 20px;
+  }
+
+  .card h3 {
+    font-size: 1.5rem; /* Increase heading size */
+    margin-bottom: 15px;
+  }
+
+  .card p {
+    font-size: 1.1rem; /* Increase paragraph size */
+  }
+}
+
+
 /* Projects Section */
 #projects {
     padding: 60px 20px;

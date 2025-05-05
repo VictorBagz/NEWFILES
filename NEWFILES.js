@@ -236,3 +236,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+        const loadingLogoContainer = document.getElementById('loading-logo-container');
+        // Optionally add a small delay before fading out
+        setTimeout(() => {
+            loadingLogoContainer.style.opacity = 0;
+            // Remove the container from the DOM after the fade out to prevent it from interfering
+            setTimeout(() => {
+                loadingLogoContainer.style.display = 'none';
+            }, 300); // Same duration as the CSS transition
+        }, 500); // Adjust this delay (in milliseconds) if needed
+    });
